@@ -1,0 +1,9 @@
+logs
+*.log
+pids
+*.pid
+*.seed
+coverage
+node_modules
+bower_components
+.DS_Store

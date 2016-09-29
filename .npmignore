@@ -1,0 +1,16 @@
+/.*
+
+/bower_components/
+
+/coverage/
+/demos/
+/test/
+/src/
+
+/karma.conf.js
+/webpack.*
+/server.js
+
+# sublime
+/*.sublime-project
+/*.sublime-workspace
