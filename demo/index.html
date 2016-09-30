@@ -21,7 +21,7 @@
                     <span class="glyphicon glyphicon-fire"></span>
                     Demos
                 </a>
-                <a class="btn btn-default" href="https://github.com/chikara-chen/react-laser-beam" role="button">
+                <a class="btn btn-default" href="#Docs" role="button">
                     <span class="glyphicon glyphicon-bookmark"></span>
                     Docs
                 </a>
@@ -36,9 +36,9 @@
     </section>
     <section class="bg-black">
         <div class="container">
- <pre>
+ <pre><code>
 $ npm install --save react-laser-beam
-</pre>
+</pre></code>
         </div>
     </section>
     <section class="page-container">
@@ -127,12 +127,79 @@ class App extends Component {
         return (
             &lt;div&gt;
                 &lt;button onClick={this._handleClick.bind(this)}&gt;Launcher&lt;button/&gt;
-                &lt;LaserBeam show={showLaserBeam} /&gt;
+                &lt;LaserBeam show={showLaserBeam} width="5px" background="#e00" zIndex="2000" ccStyle="spread" /&gt;
             &lt;/div&gt;
         )
     }
 }
 </code></pre>
+        </div>
+    </section>
+    <section class="page-container">
+        <div class="container">
+            <h1 id="Docs">Docs</h1>
+            <p class="lead">Props</p>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Default</td>
+                        <td>Required</td>
+                        <td>Description</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>show</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td>true</td>
+                        <td>Control the laser-beam show or hide</td>
+                    </tr>
+                    <tr>
+                        <td>width</td>
+                        <td>string</td>
+                        <td>'2px'</td>
+                        <td></td>
+                        <td>Set the height style of laser-beam</td>
+                    </tr>
+                    <tr>
+                        <td>backgroud</td>
+                        <td>string</td>
+                        <td>'#77b6ff'</td>
+                        <td></td>
+                        <td>Set the background style of laser-beam</td>
+                    </tr>
+                    <tr>
+                        <td>zIndex</td>
+                        <td>string</td>
+                        <td>'1200'</td>
+                        <td></td>
+                        <td>Set the z-index style of laser-beam</td>
+                    </tr>
+                    <tr>
+                        <td>noShadow</td>
+                        <td>boolean</td>
+                        <td>false</td>
+                        <td></td>
+                        <td>Control the box-shadow style show or hide</td>
+                    </tr>
+                    <tr>
+                        <td>ccStyle</td>
+                        <td>string</td>
+                        <td>'dash'</td>
+                        <td></td>
+                        <td>Control the ui style of laser-beam, you can only set <code>'dash'</code> or <code>'spread'</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="page-container footer">
+        <div class="container">
+            <p><strong>License</strong> MIT</p>
+            <p><strong>Made By</strong> <a href="https://github.com/chikara-chen">Chikara Chan</a></p>
         </div>
     </section>
 

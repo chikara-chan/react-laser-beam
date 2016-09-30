@@ -36,3 +36,11 @@ code {
 .page-container {
 	padding: 30px 0;
 }
+.footer {
+	padding-top: 20px;
+	padding-bottom: 80px;
+}
+.footer a{
+	color: #333;
+	text-decoration: underline;
+}
