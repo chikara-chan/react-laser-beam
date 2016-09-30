@@ -39,8 +39,7 @@
     "build-demos": "webpack",
     "prepublish": "rm -rf lib && babel src --out-dir lib && webpack --config webpack.prod.config.js",
     "test": "karma start ./karma.conf.js --single-run",
-    "test:dev": "karma start ./karma.conf.js --no-single-run --auto-watch",
-    "gh-pages": "git fetch origin && git checkout gh-pages && git reset --hard origin/gh-pages && git rebase origin/master --force-rebase && npm run build-demos && git add . && git commit --amend --no-edit && git push origin gh-pages --force && git checkout master"
+    "test:dev": "karma start ./karma.conf.js --no-single-run --auto-watch"
   },
   "repository": {
     "type": "git",
