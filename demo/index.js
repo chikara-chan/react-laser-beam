@@ -60,7 +60,7 @@ class Demo2 extends Component {
         return (
             <div>
                 <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
-                <LaserBeam show={showLaserBeam} width="10px" background="#f00"/>
+                <LaserBeam show={showLaserBeam} width="5px" background="#e00" zIndex="2000" ccStyle="spread"/>
             </div>
         )
     }

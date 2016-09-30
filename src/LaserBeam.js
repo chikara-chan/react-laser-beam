@@ -9,12 +9,13 @@ class LaserBeam extends Component {
                 top: '0',
                 left: '0',
                 right: '0',
-                margin: '0 auto',
+                margin: props.ccStyle == 'dash' ? '' : '0 auto',
                 zIndex: props.zIndex,
                 width: '0',
                 height: props.width,
                 background: props.background,
-                transition: 'width 0ms'
+                transition: 'all 0ms',
+                boxShadow: props.noShadow ? 'none' : props.background + ' 0px 0px 10px'
             }
         };
     }
@@ -96,17 +97,21 @@ class LaserBeam extends Component {
 }
 
 LaserBeam.propTypes = {
-    show: PropTypes.bool.require,
+    show: PropTypes.bool.isRequired,
     width: PropTypes.string,
     background: PropTypes.string,
-    zIndex: PropTypes.string
+    zIndex: PropTypes.string,
+    noShadow: PropTypes.bool,
+    ccStyle: PropTypes.oneOf(['dash', 'spread'])
 };
 
 LaserBeam.defaultProps = {
     show: false,
     width: '2px',
     background: '#77b6ff',
-    zIndex: '1200'
+    zIndex: '1200',
+    noShadow: false, 
+    ccStyle: 'dash'
 
 };
 
