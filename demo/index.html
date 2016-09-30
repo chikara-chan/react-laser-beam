@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>react-laser-beam</title>
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
 <body>
     <section class="jumbotron">
@@ -81,7 +81,7 @@ class App extends Component {
 
         return (
             &lt;div&gt;
-                &lt;button onClick={this._handleClick}&gt;Launcher&lt;button/&gt;
+                &lt;button onClick={this._handleClick.bind(this)}&gt;Launcher&lt;button/&gt;
                 &lt;LaserBeam show={showLaserBeam} /&gt;
             &lt;/div&gt;
         )
