@@ -1,5 +1,36 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {render} from 'react-dom';
 import LaserBeam from '../src';
 
-render(<LaserBeam />, document.getElementById('root'));
+class Demo1 extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            showLaserBeam: false
+        };
+    }
+
+    _handleClick() {
+        this.setState({
+            showLaserBeam: true 
+        });
+        window.setTimeout(() => {
+            this.setState({
+                showLaserBeam: false 
+            });
+        }, 3000);
+    }
+
+    render() {
+        const {showLaserBeam} = this.state;
+
+        return (
+            <div>
+                <button className="btn btn-default" onClick={this._handleClick.bind(this)}>Launcher</button>
+                <LaserBeam show={showLaserBeam} />
+            </div>
+        )
+    }
+}
+
+render(<Demo1 />, document.getElementById('demo1'));

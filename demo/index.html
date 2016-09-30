@@ -1,32 +1,98 @@
 <!doctype html>
-<html lang="en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Toggle</title>
-  <style>
-  .demo0 {
-    border-radius: 4px;
-    background-color: rgb(240, 240, 232);
-    position: relative;
-    margin: 5px 3px 10px;
-    width: 450px;
-    height: 50px;
-  }
-  .demo0-block {
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 4px;
-    background-color: rgb(130, 181, 198);
-  }
-  </style>
-</head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>react-laser-beam</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
 <body>
+    <section class="jumbotron">
+        <div class="container">
+            <h1>react-laser-beam</h1>
+            <p>A loading progress for react to improve your site interactive and experience inspired by youtube and github.</p>
+            <p>
+                <a class="btn btn-default" href="https://github.com/chikara-chen/react-laser-beam" role="button">
+                    <span class="glyphicon glyphicon-home"></span>
+                    Source
+                </a>
+                <a class="btn btn-default" href="#Demo" role="button">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    Demos
+                </a>
+                <a class="btn btn-default" href="https://github.com/chikara-chen/react-laser-beam" role="button">
+                    <span class="glyphicon glyphicon-bookmark"></span>
+                    Docs
+                </a>
+            </p>
+        </div>
+    </section>
+    <section class="page-container">
+        <div class="container">
+            <h1>Installation</h1>
+            <p class="lead">To use it, you should install with <u>npm</u>.</p>
+        </div>
+    </section>
+    <section class="bg-black">
+        <div class="container">
+ <pre>
+$ npm install --save react-laser-beam
+</pre>
+        </div>
+    </section>
+    <section class="page-container">
+        <div class="container">
+            <h1 id="Demo">Demos</h1>
+            <p class="lead">Basic Usage</p>
+            <p>Initial the LaserBeam with the <code>show</code> prop related to the state, the initial value must be <code>false</code>.</p>
+            <div id="demo1"></div>
+        </div>
+    </section>
+    <section class="bg-black">
+        <div class="container">
+ <pre>
+import {Component} from 'react';
+import LaserBeam from 'react-laser-beam';
 
-<div id="root"></div>
+class App extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            showLaserBeam: false
+        };
+    }
 
-<script src="./bundle.js"></script>
+    _handleClick() {
+        this.setState({
+            showLaserBeam: true 
+        });
+        ajax({
+            url: '/api',
+            success: () => {
+                this.setState({
+                    showLaserBeam: false 
+                });
+            }
+        });
+    }
+
+    render() {
+        const {showLaserBeam} = this.state;
+
+        return (
+            &lt;div&gt;
+                &lt;button onClick={this._handleClick}&gt;Launcher&lt;button/&gt;
+                &lt;LaserBeam show={showLaserBeam} /&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</pre>
+        </div>
+    </section>
+    <div id="root"></div>
+
+    <script src="./bundle.js"></script>
 
 </body>
 </html>

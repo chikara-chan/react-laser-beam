@@ -10,45 +10,11 @@ class LaserBeam extends Component {
                 left: '0',
                 zIndex: '1031',
                 width: '0',
-                height: '50px',
-                background: 'rgba(0,0,0,0.1)',
+                height: '2px',
+                background: '#77b6ff',
                 transition: 'width 0ms'
             }
         };
-    }
-
-    // temp
-    componentDidMount() {
-        window.addEventListener('scroll', this.handleScroll.bind(this));
-    }
-
-    // temp
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.handleScroll);
-    }
-
-    // temp
-    handleScroll() {
-        const { style } = this.state;
-        const { scrollTop } = document.body;
-        let changedStyle;
-
-        if (scrollTop >= 50) {
-            changedStyle = Object.assign({}, style, {
-                height: '2px',
-                background: '#77b6ff',
-                boxShadow: '0 0 10px rgba(119,182,255,0.7)'
-            });
-        } else {
-            changedStyle = Object.assign({}, style, {
-                height: (50 - scrollTop) + 'px',
-                background: 'rgba(0,0,0,0.1)',
-                boxShadow: 'none'
-            });
-        }
-        this.setState({
-            style: changedStyle
-        });
     }
 
     shouldComponentUpdate(nextProps, nextState) {
