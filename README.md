@@ -1,6 +1,6 @@
 # React Laser Beam
 
-A loading progress for ajax to improve your site interactive and experience inspired by youtube and github.
+A loading progress for react to improve your site interactive and experience inspired by youtube and github.
 
 ## Demos and Docs
 See the [http://chikara-chen.github.io/react-laser-beam/demo]( http://chikara-chen.github.io/react-laser-beam/demo) for more.
