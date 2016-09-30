@@ -107,7 +107,7 @@
 	                    ref: null,
 	                    props: {
 	                        children: 'Launcher',
-	                        className: 'btn btn-default',
+	                        className: 'btn btn-primary',
 	                        onClick: this._handleClick.bind(this)
 	                    },
 	                    _owner: null
@@ -137,6 +137,82 @@
 	    props: _defaultProps(Demo1.defaultProps, {}),
 	    _owner: null
 	}, document.getElementById('demo1'));
+	
+	var Demo2 = (function (_Component2) {
+	    _inherits(Demo2, _Component2);
+	
+	    function Demo2(props, context) {
+	        _classCallCheck(this, Demo2);
+	
+	        _Component2.call(this, props, context);
+	        this.state = {
+	            showLaserBeam: false
+	        };
+	    }
+	
+	    Demo2.prototype._handleClick = function _handleClick() {
+	        var _this2 = this;
+	
+	        this.setState({
+	            showLaserBeam: true
+	        });
+	        window.setTimeout(function () {
+	            _this2.setState({
+	                showLaserBeam: false
+	            });
+	        }, 3000);
+	    };
+	
+	    Demo2.prototype.render = function render() {
+	        var showLaserBeam = this.state.showLaserBeam;
+	
+	        return {
+	            $$typeof: _typeofReactElement,
+	            type: 'div',
+	            key: null,
+	            ref: null,
+	            props: {
+	                children: [{
+	                    $$typeof: _typeofReactElement,
+	                    type: 'button',
+	                    key: null,
+	                    ref: null,
+	                    props: {
+	                        children: 'Launcher',
+	                        className: 'btn btn-primary',
+	                        onClick: this._handleClick.bind(this)
+	                    },
+	                    _owner: null
+	                }, {
+	                    $$typeof: _typeofReactElement,
+	                    type: _src2['default'],
+	                    key: null,
+	                    ref: null,
+	                    props: _defaultProps(_src2['default'].defaultProps, {
+	                        show: showLaserBeam,
+	                        width: '5px',
+	                        background: '#e00',
+	                        zIndex: '2000',
+	                        ccStyle: 'spread'
+	                    }),
+	                    _owner: null
+	                }]
+	            },
+	            _owner: null
+	        };
+	    };
+	
+	    return Demo2;
+	})(_react.Component);
+	
+	_reactDom.render({
+	    $$typeof: _typeofReactElement,
+	    type: Demo2,
+	    key: null,
+	    ref: null,
+	    props: _defaultProps(Demo2.defaultProps, {}),
+	    _owner: null
+	}, document.getElementById('demo2'));
 
 /***/ },
 /* 1 */
@@ -10662,11 +10738,14 @@
 	                position: 'fixed',
 	                top: '0',
 	                left: '0',
-	                zIndex: '1031',
+	                right: '0',
+	                margin: props.ccStyle == 'dash' ? '' : '0 auto',
+	                zIndex: props.zIndex,
 	                width: '0',
-	                height: '2px',
-	                background: '#77b6ff',
-	                transition: 'width 0ms'
+	                height: props.width,
+	                background: props.background,
+	                transition: 'all 0ms',
+	                boxShadow: props.noShadow ? 'none' : props.background + ' 0px 0px 10px'
 	            }
 	        };
 	    }
@@ -10760,11 +10839,22 @@
 	})(_react.Component);
 	
 	LaserBeam.propTypes = {
-	    show: _react.PropTypes.bool
+	    show: _react.PropTypes.bool.isRequired,
+	    width: _react.PropTypes.string,
+	    background: _react.PropTypes.string,
+	    zIndex: _react.PropTypes.string,
+	    noShadow: _react.PropTypes.bool,
+	    ccStyle: _react.PropTypes.oneOf(['dash', 'spread'])
 	};
 	
 	LaserBeam.defaultProps = {
-	    show: false
+	    show: false,
+	    width: '2px',
+	    background: '#77b6ff',
+	    zIndex: '1200',
+	    noShadow: false,
+	    ccStyle: 'dash'
+	
 	};
 	
 	exports['default'] = LaserBeam;
