@@ -1,6 +1,6 @@
 {
   "name": "react-laser-beam",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A progress bar for react component.",
   "main": "lib/index.js",
   "peerDependencies": {

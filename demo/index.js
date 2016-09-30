@@ -26,7 +26,7 @@ class Demo1 extends Component {
 
         return (
             <div>
-                <button className="btn btn-default" onClick={this._handleClick.bind(this)}>Launcher</button>
+                <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
                 <LaserBeam show={showLaserBeam} />
             </div>
         )
@@ -34,3 +34,36 @@ class Demo1 extends Component {
 }
 
 render(<Demo1 />, document.getElementById('demo1'));
+
+class Demo2 extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            showLaserBeam: false
+        };
+    }
+
+    _handleClick() {
+        this.setState({
+            showLaserBeam: true 
+        });
+        window.setTimeout(() => {
+            this.setState({
+                showLaserBeam: false 
+            });
+        }, 3000);
+    }
+
+    render() {
+        const {showLaserBeam} = this.state;
+
+        return (
+            <div>
+                <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
+                <LaserBeam show={showLaserBeam} width="10px" background="#f00"/>
+            </div>
+        )
+    }
+}
+
+render(<Demo2 />, document.getElementById('demo2'));

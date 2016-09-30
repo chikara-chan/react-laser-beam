@@ -8,10 +8,12 @@ class LaserBeam extends Component {
                 position: 'fixed',
                 top: '0',
                 left: '0',
-                zIndex: '1031',
+                right: '0',
+                margin: '0 auto',
+                zIndex: props.zIndex,
                 width: '0',
-                height: '2px',
-                background: '#77b6ff',
+                height: props.width,
+                background: props.background,
                 transition: 'width 0ms'
             }
         };
@@ -94,11 +96,18 @@ class LaserBeam extends Component {
 }
 
 LaserBeam.propTypes = {
-    show: PropTypes.bool
+    show: PropTypes.bool.require,
+    width: PropTypes.string,
+    background: PropTypes.string,
+    zIndex: PropTypes.string
 };
 
 LaserBeam.defaultProps = {
-    show: false
+    show: false,
+    width: '2px',
+    background: '#77b6ff',
+    zIndex: '1200'
+
 };
 
 export default LaserBeam;

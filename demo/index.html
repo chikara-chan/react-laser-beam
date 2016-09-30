@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>react-laser-beam</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/highlight.js/9.6.0/styles/monokai_sublime.min.css" rel="stylesheet">
     <link href="./index.css" rel="stylesheet">
 <body>
     <section class="jumbotron">
@@ -50,7 +51,7 @@ $ npm install --save react-laser-beam
     </section>
     <section class="bg-black">
         <div class="container">
- <pre>
+ <pre><code>
 import {Component} from 'react';
 import LaserBeam from 'react-laser-beam';
 
@@ -61,7 +62,6 @@ class App extends Component {
             showLaserBeam: false
         };
     }
-
     _handleClick() {
         this.setState({
             showLaserBeam: true 
@@ -75,10 +75,8 @@ class App extends Component {
             }
         });
     }
-
     render() {
         const {showLaserBeam} = this.state;
-
         return (
             &lt;div&gt;
                 &lt;button onClick={this._handleClick.bind(this)}&gt;Launcher&lt;button/&gt;
@@ -87,12 +85,62 @@ class App extends Component {
         )
     }
 }
-</pre>
+</code></pre>
         </div>
     </section>
-    <div id="root"></div>
+    <section class="page-container">
+        <div class="container">
+            <p class="lead">Custom Usage</p>
+            <p>You could set the props you wanted to custom the LaserBeam.
+            For example, click the button and scroll the page quickly.</p>
+            <div id="demo2"></div>
+        </div>
+    </section>
+    <section class="bg-black">
+        <div class="container">
+ <pre><code>
+import {Component} from 'react';
+import LaserBeam from 'react-laser-beam';
+
+class App extends Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            showLaserBeam: false
+        };
+    }
+    _handleClick() {
+        this.setState({
+            showLaserBeam: true 
+        });
+        ajax({
+            url: '/api',
+            success: () => {
+                this.setState({
+                    showLaserBeam: false 
+                });
+            }
+        });
+    }
+    render() {
+        const {showLaserBeam} = this.state;
+        return (
+            &lt;div&gt;
+                &lt;button onClick={this._handleClick.bind(this)}&gt;Launcher&lt;button/&gt;
+                &lt;LaserBeam show={showLaserBeam} /&gt;
+            &lt;/div&gt;
+        )
+    }
+}
+</code></pre>
+        </div>
+    </section>
 
     <script src="./bundle.js"></script>
+    <script src="https://cdn.bootcss.com/highlight.js/9.7.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
 
 </body>
 </html>
