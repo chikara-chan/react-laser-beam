@@ -2,8 +2,6 @@
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
-// Temporary fix for css-loader/post-css
-// 'Module build failed: ReferenceError: Promise is not defined'
 require('babel/polyfill');
 
 var webpack = require('webpack');
