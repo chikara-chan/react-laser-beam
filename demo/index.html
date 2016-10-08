@@ -91,8 +91,11 @@ class App extends Component {
     <section class="page-container">
         <div class="container">
             <p class="lead">Custom Usage</p>
-            <p>You could set the props you wanted to custom the LaserBeam.
-            For example, click the button and scroll the page quickly.</p>
+            <p>
+            You are now allowed to set the several props to make a more colorful and individual LaserBeam.<br/>
+            For example, you can change the width, background, style of spread or addon options.<br/>
+            For more details, see the docs at the bottom of page.
+            </p>
             <div id="demo2"></div>
         </div>
     </section>
@@ -127,7 +130,7 @@ class App extends Component {
         return (
             &lt;div&gt;
                 &lt;button onClick={this._handleClick.bind(this)}&gt;Launcher&lt;button/&gt;
-                &lt;LaserBeam show={showLaserBeam} width="5px" background="#e00" zIndex="2000" ccStyle="spread" /&gt;
+                &lt;LaserBeam show={showLaserBeam} width="4px" background="#77b6ff" zIndex="2000" ccStyle="spread" addon="#fff" /&gt;
             &lt;/div&gt;
         )
     }
@@ -142,7 +145,7 @@ class App extends Component {
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <td>Name</td>
+                        <td>Prop</td>
                         <td>Type</td>
                         <td>Default</td>
                         <td>Required</td>
@@ -191,6 +194,13 @@ class App extends Component {
                         <td>'dash'</td>
                         <td></td>
                         <td>Control the ui style of laser-beam, you can only set <code>'dash'</code> or <code>'spread'</code></td>
+                    </tr>
+                    <tr>
+                        <td>addon</td>
+                        <td>string</td>
+                        <td>'transparent'</td>
+                        <td></td>
+                        <td>Set the end color of laser-beam, for example, try to set '#fff'</td>
                     </tr>
                 </tbody>
             </table>

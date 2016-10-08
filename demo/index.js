@@ -10,26 +10,15 @@ class Demo1 extends Component {
         };
     }
 
-    // _handleClick() {
-    //     this.setState({
-    //         showLaserBeam: true 
-    //     });
-    //     window.setTimeout(() => {
-    //         this.setState({
-    //             showLaserBeam: false 
-    //         });
-    //     }, 3000);
-    // }
-    
     _handleClick() {
         this.setState({
             showLaserBeam: true 
         });
-    }
-    _handleClickF() {
-        this.setState({
-            showLaserBeam: false 
-        });
+        window.setTimeout(() => {
+            this.setState({
+                showLaserBeam: false 
+            });
+        }, 3000);
     }
 
     _renderIcon() {
@@ -47,7 +36,6 @@ class Demo1 extends Component {
         return (
             <div>
                 <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
-                <button className="btn btn-primary" onClick={this._handleClickF.bind(this)}>Launcher2</button>
                 <LaserBeam show={showLaserBeam} />
                 {this._renderIcon()}
             </div>
