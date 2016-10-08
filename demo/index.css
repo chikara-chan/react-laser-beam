@@ -2,6 +2,14 @@
 	background-color: #fff;
 	border-bottom: 1px #eee solid; 
 }
+.jumbotron h1 {
+	display: table;
+	animation: 1.5s animated linear;
+}
+@keyframes animated{
+	0%{-webkit-clip-path: polygon(70% 0, 80% 0, 30% 100%, 20% 100%);}
+	100%{-webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);}
+}
 .jumbotron a + a{
 	margin-left: 20px;
 }
