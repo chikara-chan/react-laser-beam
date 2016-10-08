@@ -8,7 +8,7 @@ See the [http://chikara-chen.github.io/react-laser-beam/demo]( http://chikara-ch
 ## Installation
 
 ```
-$ npm install --save react-laser-beam
+$ xnpm install --save @51xianqu/react-laser-beam
 ```
 
 ## Local setup
