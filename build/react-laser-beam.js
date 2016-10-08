@@ -75,9 +75,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.__esModule = true;
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _typeofReactElement = typeof Symbol === 'function' && Symbol['for'] && Symbol['for']('react.element') || 60103;
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
@@ -86,6 +90,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _objectAssign = __webpack_require__(3);
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
 	var LaserBeam = (function (_Component) {
 	    _inherits(LaserBeam, _Component);
@@ -99,147 +107,180 @@ return /******/ (function(modules) { // webpackBootstrap
 	                position: 'fixed',
 	                top: '0',
 	                left: '0',
-	                zIndex: '1031',
+	                right: '0',
+	                margin: props.ccStyle == 'dash' ? '' : '0 auto',
+	                zIndex: props.zIndex,
 	                width: '0',
-	                height: '50px',
-	                background: 'rgba(0,0,0,0.1)',
-	                transition: 'width 0ms'
+	                height: props.width,
+	                background: props.background,
+	                transition: 'all 0ms',
+	                boxShadow: props.noShadow ? 'none' : props.background + ' 0px 0px 10px'
+	            },
+	            addonStyle: {
+	                content: '',
+	                display: 'none',
+	                position: 'absolute',
+	                right: -parseInt(props.width) / 2 + 'px',
+	                width: props.width,
+	                height: props.width,
+	                background: props.addon,
+	                boxShadow: props.addon + ' 0 0 10px ' + (2 / parseInt(props.width) + 1) + 'px',
+	                borderRadius: '50%'
 	            }
 	        };
 	    }
-
-	    // temp
-
-	    LaserBeam.prototype.componentDidMount = function componentDidMount() {
-	        window.addEventListener('scroll', this.handleScroll.bind(this));
-	    };
-
-	    // temp
-
-	    LaserBeam.prototype.componentWillUnmount = function componentWillUnmount() {
-	        window.removeEventListener('scroll', this.handleScroll);
-	    };
-
-	    // temp
-
-	    LaserBeam.prototype.handleScroll = function handleScroll() {
-	        var style = this.state.style;
-	        var scrollTop = document.body.scrollTop;
-
-	        var changedStyle = undefined;
-
-	        if (scrollTop >= 50) {
-	            changedStyle = Object.assign({}, style, {
-	                height: '2px',
-	                background: '#77b6ff',
-	                boxShadow: '0 0 10px rgba(119,182,255,0.7)'
-	            });
-	        } else {
-	            changedStyle = Object.assign({}, style, {
-	                height: 50 - scrollTop + 'px',
-	                background: 'rgba(0,0,0,0.1)',
-	                boxShadow: 'none'
-	            });
-	        }
-	        this.setState({
-	            style: changedStyle
-	        });
-	    };
 
 	    LaserBeam.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps, nextState) {
 	        return this.props.show !== nextProps.show || this.state.style !== nextState.style;
 	    };
 
 	    LaserBeam.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        var _this = this;
-
-	        var style = this.state.style;
+	        var _state = this.state;
+	        var style = _state.style;
+	        var addonStyle = _state.addonStyle;
 	        var show = this.props.show;
 
 	        var nextShow = nextProps.show;
-	        var changedStyle = undefined;
+	        var changedStyle = undefined,
+	            changedAddonStyle = undefined;
 
 	        if (show === nextShow) {
 	            return;
 	        }
-	        if (!show && nextShow) {
-	            changedStyle = Object.assign({}, style, {
-	                width: '0',
-	                transition: 'width 0ms'
-	            });
-	            this.setState({
-	                style: changedStyle
-	            });
-	            changedStyle = Object.assign({}, style, {
-	                width: '70%',
-	                transition: 'width 10s cubic-bezier(0, 1, 0.3, 1)'
-	            });
-	            setTimeout(function () {
-	                _this.setState({
-	                    style: changedStyle
-	                });
-	            }, 1);
-	            return;
-	        }
 	        if (nextShow) {
-	            changedStyle = Object.assign({}, style, {
+	            changedStyle = _objectAssign2['default']({}, style, {
 	                width: '70%',
 	                transition: 'width 10s cubic-bezier(0, 1, 0.3, 1)'
 	            });
 	        } else {
-	            changedStyle = Object.assign({}, style, {
+	            changedStyle = _objectAssign2['default']({}, style, {
 	                width: '100%',
 	                transition: 'width 400ms ease'
 	            });
 	        }
-	        this.setState({
-	            style: changedStyle
+	        changedAddonStyle = _objectAssign2['default']({}, addonStyle, {
+	            display: 'block'
 	        });
+	        this.state.style = changedStyle;
+	        this.state.addonStyle = changedAddonStyle;
 	    };
 
 	    LaserBeam.prototype.handleTransitionEnd = function handleTransitionEnd() {
-	        var style = this.state.style;
+	        var _state2 = this.state;
+	        var style = _state2.style;
+	        var addonStyle = _state2.addonStyle;
 	        var show = this.props.show;
 
-	        var changedStyle = undefined;
+	        var changedStyle = undefined,
+	            changedAddonStyle = undefined;
 
 	        if (!show) {
-	            changedStyle = Object.assign({}, style, {
+	            changedStyle = _objectAssign2['default']({}, style, {
 	                width: '0',
 	                transition: 'width 0ms'
 	            });
+	            changedAddonStyle = _objectAssign2['default']({}, addonStyle, {
+	                display: 'none'
+	            });
 
 	            this.setState({
-	                style: changedStyle
+	                style: changedStyle,
+	                addonStyle: changedAddonStyle
 	            });
+	        }
+	    };
+
+	    LaserBeam.prototype._renderAddon = function _renderAddon() {
+	        var addonStyle = this.state.addonStyle;
+	        var _props = this.props;
+	        var ccStyle = _props.ccStyle;
+	        var width = _props.width;
+
+	        if (ccStyle == 'spread') {
+	            var rets = [];
+	            var changedAddonStyle = undefined;
+
+	            changedAddonStyle = _objectAssign2['default']({}, addonStyle, {
+	                left: -parseInt(width) / 2 + 'px',
+	                right: 0
+	            });
+	            rets.push({
+	                $$typeof: _typeofReactElement,
+	                type: 'div',
+	                key: 'after',
+	                ref: null,
+	                props: {
+	                    style: addonStyle
+	                },
+	                _owner: null
+	            });
+	            rets.push({
+	                $$typeof: _typeofReactElement,
+	                type: 'div',
+	                key: 'before',
+	                ref: null,
+	                props: {
+	                    style: changedAddonStyle
+	                },
+	                _owner: null
+	            });
+
+	            return rets;
+	        } else {
+	            return {
+	                $$typeof: _typeofReactElement,
+	                type: 'div',
+	                key: null,
+	                ref: null,
+	                props: {
+	                    style: addonStyle
+	                },
+	                _owner: null
+	            };
 	        }
 	    };
 
 	    LaserBeam.prototype.render = function render() {
 	        var style = this.state.style;
+	        var _props2 = this.props;
+	        var show = _props2.show;
+	        var width = _props2.width;
+	        var background = _props2.background;
+	        var zIndex = _props2.zIndex;
+	        var noShadow = _props2.noShadow;
+	        var ccStyle = _props2.ccStyle;
+	        var addon = _props2.addon;
 
-	        return {
-	            $$typeof: _typeofReactElement,
-	            type: 'div',
-	            key: null,
-	            ref: null,
-	            props: {
-	                style: style,
-	                onTransitionEnd: this.handleTransitionEnd.bind(this)
-	            },
-	            _owner: null
-	        };
+	        var props = _objectWithoutProperties(_props2, ['show', 'width', 'background', 'zIndex', 'noShadow', 'ccStyle', 'addon']);
+
+	        return _react2['default'].createElement(
+	            'div',
+	            _extends({}, props, { style: style, onTransitionEnd: this.handleTransitionEnd.bind(this) }),
+	            this._renderAddon()
+	        );
 	    };
 
 	    return LaserBeam;
 	})(_react.Component);
 
 	LaserBeam.propTypes = {
-	    show: _react.PropTypes.bool
+	    show: _react.PropTypes.bool.isRequired,
+	    width: _react.PropTypes.string,
+	    background: _react.PropTypes.string,
+	    zIndex: _react.PropTypes.string,
+	    noShadow: _react.PropTypes.bool,
+	    ccStyle: _react.PropTypes.oneOf(['dash', 'spread']),
+	    addon: _react.PropTypes.string
 	};
 
 	LaserBeam.defaultProps = {
-	    show: false
+	    show: false,
+	    width: '2px',
+	    background: '#77b6ff',
+	    zIndex: '1200',
+	    noShadow: false,
+	    ccStyle: 'dash',
+	    addon: 'transparent'
 	};
 
 	exports['default'] = LaserBeam;
@@ -250,6 +291,93 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	module.exports = __WEBPACK_EXTERNAL_MODULE_2__;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	'use strict';
+	/* eslint-disable no-unused-vars */
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+	function toObject(val) {
+		if (val === null || val === undefined) {
+			throw new TypeError('Object.assign cannot be called with null or undefined');
+		}
+
+		return Object(val);
+	}
+
+	function shouldUseNative() {
+		try {
+			if (!Object.assign) {
+				return false;
+			}
+
+			// Detect buggy property enumeration order in older V8 versions.
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+			var test1 = new String('abc'); // eslint-disable-line
+			test1[5] = 'de';
+			if (Object.getOwnPropertyNames(test1)[0] === '5') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test2 = {};
+			for (var i = 0; i < 10; i++) {
+				test2['_' + String.fromCharCode(i)] = i;
+			}
+			var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+				return test2[n];
+			});
+			if (order2.join('') !== '0123456789') {
+				return false;
+			}
+
+			// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+			var test3 = {};
+			'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+				test3[letter] = letter;
+			});
+			if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+				return false;
+			}
+
+			return true;
+		} catch (e) {
+			// We don't expect any of the above to throw, but better to be safe.
+			return false;
+		}
+	}
+
+	module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+		var from;
+		var to = toObject(target);
+		var symbols;
+
+		for (var s = 1; s < arguments.length; s++) {
+			from = Object(arguments[s]);
+
+			for (var key in from) {
+				if (hasOwnProperty.call(from, key)) {
+					to[key] = from[key];
+				}
+			}
+
+			if (Object.getOwnPropertySymbols) {
+				symbols = Object.getOwnPropertySymbols(from);
+				for (var i = 0; i < symbols.length; i++) {
+					if (propIsEnumerable.call(from, symbols[i])) {
+						to[symbols[i]] = from[symbols[i]];
+					}
+				}
+			}
+		}
+
+		return to;
+	};
 
 /***/ }
 /******/ ])
