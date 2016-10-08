@@ -18,6 +18,6 @@
 > 2016-10-08
 - fix bugs
 
-### 1.3.2
+### 1.3.3
 > 2016-10-08
 - npm repository moved
