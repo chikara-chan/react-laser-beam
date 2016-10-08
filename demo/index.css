@@ -8,6 +8,12 @@
 .jumbotron a{
 	transition: all 0.3s;
 	border-color: #333; 
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.jumbotron a span{
+	margin: 0;
 }
 .jumbotron a:hover{
 	background: #333;
@@ -43,4 +49,9 @@ code {
 .footer a{
 	color: #333;
 	text-decoration: underline;
+}
+.glyphicon{
+	top:5px;
+	margin-left: 20px;
+	font-size: 20px;
 }

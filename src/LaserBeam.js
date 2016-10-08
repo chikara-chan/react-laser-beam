@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import assign from 'object-assign';
+
 
 class LaserBeam extends Component {
     constructor(props, context) {
@@ -16,6 +18,17 @@ class LaserBeam extends Component {
                 background: props.background,
                 transition: 'all 0ms',
                 boxShadow: props.noShadow ? 'none' : props.background + ' 0px 0px 10px'
+            },
+            addonStyle: {
+                content: '',
+                display: 'none',
+                position: 'absolute',
+                right: -parseInt(props.width)/2 + 'px',
+                width: props.width,
+                height: props.width,
+                background: props.addon,
+                boxShadow: props.addon + ' 0 0 10px ' + (2/parseInt(props.width) + 1) + 'px',
+                borderRadius: '50%'
             }
         };
     }
@@ -27,71 +40,82 @@ class LaserBeam extends Component {
 
 
     componentWillReceiveProps(nextProps) {
-        const { style } = this.state;
+        const { style, addonStyle } = this.state;
         const { show } = this.props;
         const nextShow = nextProps.show;
-        let changedStyle;
+        let changedStyle, changedAddonStyle;
 
         if (show === nextShow) {
             return;
         }
-        if (!show && nextShow) {
-            changedStyle = Object.assign({}, style, {
-                width: '0',
-                transition: 'width 0ms'
-            });
-            this.setState({
-                style: changedStyle
-            });
-            changedStyle = Object.assign({}, style, {
-                width: '70%',
-                transition: 'width 10s cubic-bezier(0, 1, 0.3, 1)'
-            });
-            setTimeout(() => {
-                this.setState({
-                    style: changedStyle
-                });
-            }, 1);
-            return;
-        }
         if (nextShow) {
-            changedStyle = Object.assign({}, style, {
+            changedStyle = assign({}, style, {
                 width: '70%',
                 transition: 'width 10s cubic-bezier(0, 1, 0.3, 1)'
             });
         } else {
-            changedStyle = Object.assign({}, style, {
+            changedStyle = assign({}, style, {
                 width: '100%',
                 transition: 'width 400ms ease'
             });
         }
-        this.setState({
-            style: changedStyle
+        changedAddonStyle = assign({}, addonStyle, {
+            display: 'block'
         });
+        this.state.style = changedStyle;
+        this.state.addonStyle = changedAddonStyle;
     }
 
     handleTransitionEnd() {
-        const { style } = this.state;
+        const { style, addonStyle } = this.state;
         const { show } = this.props;
-        let changedStyle;
+        let changedStyle, changedAddonStyle;
 
         if (!show) {
-            changedStyle = Object.assign({}, style, {
+            changedStyle = assign({}, style, {
                 width: '0',
                 transition: 'width 0ms'
             });
+            changedAddonStyle = assign({}, addonStyle, {
+                display: 'none'
+            });
 
             this.setState({
-                style: changedStyle
+                style: changedStyle,
+                addonStyle: changedAddonStyle
             });
+        }
+    }
+
+    _renderAddon() {
+        const { addonStyle } = this.state;
+        const { ccStyle, width } = this.props;
+
+        if (ccStyle == 'spread') {
+            let rets = [];
+            let changedAddonStyle ;
+
+            changedAddonStyle = assign({}, addonStyle, {
+                left: -parseInt(width)/2 + 'px',
+                right: 0
+            });
+            rets.push(<div key="after" style={addonStyle}></div>);
+            rets.push(<div key="before" style={changedAddonStyle}></div>);
+
+            return rets;
+        } else {
+            return <div style={addonStyle}></div>;
         }
     }
 
     render() {
         const { style } = this.state;
+        const { show, width, background, zIndex, noShadow, ccStyle, addon, ...props } = this.props;
 
         return (
-            <div style={style} onTransitionEnd={this.handleTransitionEnd.bind(this)}></div>
+            <div {...props} style={style} onTransitionEnd={this.handleTransitionEnd.bind(this)}>
+                {this._renderAddon()}
+            </div>
         );
     }
 }
@@ -102,7 +126,8 @@ LaserBeam.propTypes = {
     background: PropTypes.string,
     zIndex: PropTypes.string,
     noShadow: PropTypes.bool,
-    ccStyle: PropTypes.oneOf(['dash', 'spread'])
+    ccStyle: PropTypes.oneOf(['dash', 'spread']),
+    addon: PropTypes.string
 };
 
 LaserBeam.defaultProps = {
@@ -111,8 +136,8 @@ LaserBeam.defaultProps = {
     background: '#77b6ff',
     zIndex: '1200',
     noShadow: false, 
-    ccStyle: 'dash'
-
+    ccStyle: 'dash',
+    addon: 'transparent'
 };
 
 export default LaserBeam;

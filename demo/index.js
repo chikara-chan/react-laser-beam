@@ -10,15 +10,35 @@ class Demo1 extends Component {
         };
     }
 
+    // _handleClick() {
+    //     this.setState({
+    //         showLaserBeam: true 
+    //     });
+    //     window.setTimeout(() => {
+    //         this.setState({
+    //             showLaserBeam: false 
+    //         });
+    //     }, 3000);
+    // }
+    
     _handleClick() {
         this.setState({
             showLaserBeam: true 
         });
-        window.setTimeout(() => {
-            this.setState({
-                showLaserBeam: false 
-            });
-        }, 3000);
+    }
+    _handleClickF() {
+        this.setState({
+            showLaserBeam: false 
+        });
+    }
+
+    _renderIcon() {
+        let rets = [];
+
+        for (let i = 0; i < 10; i++) {
+            rets.push(<i className="glyphicon glyphicon-hand-left" key={i}></i>);
+        }
+        return rets;
     }
 
     render() {
@@ -27,7 +47,9 @@ class Demo1 extends Component {
         return (
             <div>
                 <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
+                <button className="btn btn-primary" onClick={this._handleClickF.bind(this)}>Launcher2</button>
                 <LaserBeam show={showLaserBeam} />
+                {this._renderIcon()}
             </div>
         )
     }
@@ -54,13 +76,23 @@ class Demo2 extends Component {
         }, 3000);
     }
 
+    _renderIcon() {
+        let rets = [];
+
+        for (let i = 0; i < 10; i++) {
+            rets.push(<i className="glyphicon glyphicon-hand-left" key={i}></i>);
+        }
+        return rets;
+    }
+
     render() {
         const {showLaserBeam} = this.state;
 
         return (
             <div>
                 <button className="btn btn-primary" onClick={this._handleClick.bind(this)}>Launcher</button>
-                <LaserBeam show={showLaserBeam} width="5px" background="#e00" zIndex="2000" ccStyle="spread"/>
+                <LaserBeam show={showLaserBeam} width="4px" background="#77b6ff" zIndex="2000" ccStyle="spread" addon="#fff"/>
+                {this._renderIcon()}
             </div>
         )
     }
