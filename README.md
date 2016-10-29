@@ -1,6 +1,4 @@
-# React Laser Beam
-[![Build Status](https://travis-ci.org/chikara-chen/react-laser-beam.svg?branch=master)](https://travis-ci.org/chikara-chen/react-laser-beam)
-[![npm version](https://badge.fury.io/js/react-laser-beam.svg)](https://www.npmjs.com/package/react-laser-beam)
+# React Laser Beam [![Build Status](https://travis-ci.org/chikara-chen/react-laser-beam.svg?branch=master)](https://travis-ci.org/chikara-chen/react-laser-beam) [![npm version](https://badge.fury.io/js/react-laser-beam.svg)](https://www.npmjs.com/package/react-laser-beam)
 
 A loading progress for react to improve your site interactive and experience inspired by youtube and github.
 
