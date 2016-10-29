@@ -1,5 +1,4 @@
-# React Laser Beam [![Travis][build-badge]][build] [![npm][npm-badge]][npm]
-
+# React Laser Beam [![Build Status](https://travis-ci.org/chikara-chen/react-laser-beam.svg?branch=master)](https://travis-ci.org/chikara-chen/react-laser-beam)
 
 A loading progress for react to improve your site interactive and experience inspired by youtube and github.
 
