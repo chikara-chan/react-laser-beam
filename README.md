@@ -1,4 +1,4 @@
-# React Laser Beam
+# React Laser Beam [![Build Status](https://travis-ci.org/chenglou/react-motion.svg?branch=master)](https://travis-ci.org/chenglou/react-motion)
 
 A loading progress for react to improve your site interactive and experience inspired by youtube and github.
 
