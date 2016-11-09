@@ -17,7 +17,7 @@ var plugins = [
   })
 ];
 var entry = {
-  'bundle': './demo/index.js'
+  'bundle': './docs/index.js'
 };
 
 if (process.env.NODE_ENV === 'development') {
@@ -46,8 +46,8 @@ module.exports = {
   entry: entry,
   output: {
     filename: '[name].js',
-    publicPath: '/demo/',
-    path: __dirname + '/demo/',
+    publicPath: '/docs/',
+    path: __dirname + '/docs/',
   },
   module: {
     loaders: [{

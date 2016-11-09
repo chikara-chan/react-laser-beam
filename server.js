@@ -19,5 +19,5 @@ new WebpackDevServer(webpack(config), {
   }
 
   console.log('Listening at 0.0.0.0:' + port);
-  open('http://localhost:' + port +'/demo/index.html');
+  open('http://localhost:' + port +'/docs/index.html');
 });
