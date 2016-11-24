@@ -1,0 +1,35 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "rules": {
+    "eqeqeq": [2, "allow-null"],
+    "id-length": 0,
+    "no-console": 0, // use it for warnings
+    "no-nested-ternary": 0,
+    "prefer-const": 0,
+    "no-multiple-empty-lines": 0,
+    "react/no-multi-comp": 0,
+    "max-len": 0,
+    "no-mixed-operators": 0,
+    "no-continue": 0,
+    "no-restricted-syntax": 0,
+    "no-plusplus": 0,
+    "no-confusing-arrow": 0,
+    "arrow-parens": 0,
+    "arrow-body-style": 0,
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/prefer-es6-class": 0,
+    "react/jsx-filename-extension": 0,
+    "react/prefer-stateless-function": 0,
+    "object-curly-spacing": 0,
+    "import/imports-first": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}
