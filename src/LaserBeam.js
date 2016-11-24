@@ -11,7 +11,7 @@ class LaserBeam extends Component {
                 top: '0',
                 left: '0',
                 right: '0',
-                margin: props.ccStyle == 'dash' ? '' : '0 auto',
+                margin: props.ccStyle === 'dash' ? '' : '0 auto',
                 zIndex: props.zIndex,
                 width: '0',
                 height: props.width,
@@ -91,7 +91,7 @@ class LaserBeam extends Component {
         const { addonStyle } = this.state;
         const { ccStyle, width } = this.props;
 
-        if (ccStyle == 'spread') {
+        if (ccStyle === 'spread') {
             let rets = [];
             let changedAddonStyle ;
 
