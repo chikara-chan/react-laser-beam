@@ -44,7 +44,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "build/";
+/******/ 	__webpack_require__.p = "dist/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -108,7 +108,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                top: '0',
 	                left: '0',
 	                right: '0',
-	                margin: props.ccStyle == 'dash' ? '' : '0 auto',
+	                margin: props.ccStyle === 'dash' ? '' : '0 auto',
 	                zIndex: props.zIndex,
 	                width: '0',
 	                height: props.width,
@@ -196,7 +196,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var ccStyle = _props.ccStyle;
 	        var width = _props.width;
 
-	        if (ccStyle == 'spread') {
+	        if (ccStyle === 'spread') {
 	            var rets = [];
 	            var changedAddonStyle = undefined;
 
