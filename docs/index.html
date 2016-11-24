@@ -38,7 +38,9 @@
         <div class="container">
  <pre><code>
 $ npm install --save react-laser-beam
+$ bower install --save react-laser-beam
 </pre></code>
+
         </div>
     </section>
     <section class="page-container">
@@ -64,13 +66,13 @@ class App extends Component {
     }
     _handleClick() {
         this.setState({
-            showLaserBeam: true 
+            showLaserBeam: true
         });
         ajax({
             url: '/api',
             success: () => {
                 this.setState({
-                    showLaserBeam: false 
+                    showLaserBeam: false
                 });
             }
         });
@@ -114,13 +116,13 @@ class App extends Component {
     }
     _handleClick() {
         this.setState({
-            showLaserBeam: true 
+            showLaserBeam: true
         });
         ajax({
             url: '/api',
             success: () => {
                 this.setState({
-                    showLaserBeam: false 
+                    showLaserBeam: false
                 });
             }
         });

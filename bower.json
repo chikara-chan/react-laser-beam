@@ -1,0 +1,22 @@
+{
+  "name": "react-laser-beam",
+  "description": "A loading progress for react to improve your site interactive and experience inspired by youtube and github.",
+  "main": "lib/index.js",
+  "authors": [
+    "chikara"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "component",
+    "react-component"
+  ],
+  "homepage": "https://chikara-chen.github.io/react-laser-beam/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

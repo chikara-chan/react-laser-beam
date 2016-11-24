@@ -9,14 +9,15 @@ See the [http://chikara-chen.github.io/react-laser-beam]( http://chikara-chen.gi
 
 ```
 $ npm install --save react-laser-beam
-```
 
+$ bower install --save react-laser-beam
+```
 ## Local setup
 
 - Install the dependencies with `npm install`
 - Run tests `npm test`
 - Run tests in watch mode `npm run test:dev`
-- Run the docs site in development mode with `npm start`. This will watch for file changes as you work. 
+- Run the docs site in development mode with `npm start`. This will watch for file changes as you work.
 - Build the docs site with `npm run build-docs`
 - Build the project for npm with `npm run prepublish`
 
