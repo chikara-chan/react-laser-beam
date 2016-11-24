@@ -135,7 +135,7 @@ LaserBeam.defaultProps = {
     width: '2px',
     background: '#77b6ff',
     zIndex: '1200',
-    noShadow: false, 
+    noShadow: false,
     ccStyle: 'dash',
     addon: 'transparent'
 };
