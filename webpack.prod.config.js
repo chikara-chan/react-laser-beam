@@ -10,8 +10,8 @@ var config = {
     index: './src/index.js'
   },
   output: {
-    path: path.join(__dirname, 'build'),
-    publicPath: 'build/',
+    path: path.join(__dirname, 'dist'),
+    publicPath: 'dist/',
     filename: 'react-laser-beam.js',
     library: 'ReactLaserBeam',
     libraryTarget: 'umd'
