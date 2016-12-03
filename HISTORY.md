@@ -21,3 +21,7 @@
 ### 1.3.3
 > 2016-10-08
 - npm repository moved
+
+### 1.3.5
+> 2016-12-03
+- the warning utils is called when LaserBeam is initialed
