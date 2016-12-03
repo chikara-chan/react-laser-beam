@@ -1,10 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import assign from 'object-assign';
+import warning from './utils/warning';
 
 
 class LaserBeam extends Component {
     constructor(props, context) {
         super(props, context);
+        if (props.show === true) {
+        	warning('To ensure ReactLaserBeam work correctly. The initial prop "show" must be "false".');
+        }
         this.state = {
             style: {
                 position: 'fixed',
