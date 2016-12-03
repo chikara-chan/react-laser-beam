@@ -12,11 +12,11 @@ class Demo1 extends Component {
 
     _handleClick() {
         this.setState({
-            showLaserBeam: true 
+            showLaserBeam: true
         });
         window.setTimeout(() => {
             this.setState({
-                showLaserBeam: false 
+                showLaserBeam: false
             });
         }, 3000);
     }
@@ -55,11 +55,11 @@ class Demo2 extends Component {
 
     _handleClick() {
         this.setState({
-            showLaserBeam: true 
+            showLaserBeam: true
         });
         window.setTimeout(() => {
             this.setState({
-                showLaserBeam: false 
+                showLaserBeam: false
             });
         }, 3000);
     }
