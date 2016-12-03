@@ -1,6 +1,6 @@
 {
   "name": "react-laser-beam",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "description": "A loading progress for react to improve your site interactive and experience inspired by youtube and github.",
   "main": "lib/index.js",
   "peerDependencies": {
