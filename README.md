@@ -9,8 +9,9 @@ See the [http://chikara-chen.github.io/react-laser-beam]( http://chikara-chen.gi
 
 ```
 $ npm install --save react-laser-beam
-```
 
+$ bower install --save react-laser-beam
+```
 ## Local setup
 
 - Install the dependencies with `npm install`
