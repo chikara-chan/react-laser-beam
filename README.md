@@ -16,7 +16,7 @@ $ npm install --save react-laser-beam
 ``` js
 $ import LaserBeam from 'react-laser-beam'
 ```
-``` js
+``` jsx
 $ <LaserBeam show={this.state.showLoading}/>
 ```
 
