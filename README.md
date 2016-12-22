@@ -7,16 +7,16 @@ See the [http://chikara-chan.github.io/react-laser-beam]( http://chikara-chan.gi
 
 ## Installation
 
-``` js
+```js
 $ npm install --save react-laser-beam
 ```
 
 ## Usage
 
-``` js
+```js
 $ import LaserBeam from 'react-laser-beam'
 ```
-``` jsx
+```jsx
 $ <LaserBeam show={this.state.showLoading}/>
 ```
 
