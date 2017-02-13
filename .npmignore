@@ -3,12 +3,14 @@
 /bower_components/
 
 /coverage/
-/demos/
+/build/
+/docs/
+/examples/
 /test/
 /src/
 
-/karma.conf.js
-/webpack.*
+/*.conf.js
+/*.config.js
 /server.js
 
 # sublime
