@@ -2,6 +2,8 @@
 
 A loading progress for react to improve your site interactive and experience inspired by youtube and github.
 
+![](https://user-images.githubusercontent.com/13572030/82795745-04793200-9ea7-11ea-9ca1-15d2ea4aa604.jpeg)
+
 ## Demos and Docs
 See the [http://chikara-chan.github.io/react-laser-beam]( http://chikara-chan.github.io/react-laser-beam) for more.
 
